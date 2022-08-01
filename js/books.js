@@ -25,12 +25,13 @@ export default function displayBooks() {
     const title = document.createElement('p');
     const author = document.createElement('p');
     const removeButton = document.createElement('button');
+    const hr = document.createElement('hr');
 
     title.textContent = book.title;
     author.textContent = book.author;
     removeButton.id = `remove${i}`;
     removeButton.textContent = 'remove';
-    bookBody.append(title, author, removeButton);
+    bookBody.append(title, author, removeButton, hr);
     booksContainer.append(bookBody);
   }
 }
