@@ -55,11 +55,12 @@ function removeBook(index) {
   displayBooks();
 }
 
-addButton.addEventListener('click', (event) => {
-  event.preventDefault();
-  addBook(title.value, authorName.value);
-  title.value = '';
-  authorName.value = '';
+addButton.addEventListener('click', () => {
+  if (title.validity.valid && authorName.validity.valid) {
+    addBook(title.value, authorName.value);
+    title.value = '';
+    authorName.value = '';
+  }
 });
 
 booksContainer.addEventListener('click', (event) => {
