@@ -51,5 +51,3 @@ function getBooks() {
 }
 
 export { storageAvailable, setBooks, getBooks };
-
-
