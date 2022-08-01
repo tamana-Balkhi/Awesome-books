@@ -1,20 +1,44 @@
+import * as storage from './dataStorage.js'; 
 const booksContainer = document.getElementById('booksContainer');
 const title = document.getElementById('title');
 const authorName = document.getElementById('author');
 const addButton = document.getElementById('addBtn');
 
 
-const arrBooks = [];
+let arrBooks = [];
 
 function Book(title, author) {
   this.title = title;
   this.author = author;
 }
 
+function displayBooks() {
+  booksContainer.innerHTML = '';
+  for (let i = 0; i < arrBooks.length; i++) {
+    const book = arrBooks[i];
+    const bookBody = document.createElement('div');
+    const title = document.createElement('p');
+    const author = document.createElement('p');
+    const removeButton = document.createElement('button');
+
+    title.textContent = book.title;
+    author.textContent = book.author;
+    removeButton.id = `remove${i}`;
+    removeButton.textContent = 'remove';
+    bookBody.append(title, author, removeButton);
+    booksContainer.append(bookBody);
+  }
+}
+
 function addBook(title, author) {
   const book = new Book(title, author);
   arrBooks.push(book);
-  console.log(arrBooks);
+  displayBooks();
+}
+
+function removeBook(index) {
+  arrBooks = arrBooks.filter((_, position) => position !== index);
+  displayBooks();
 }
 
 addButton.addEventListener('click', (event) => {
@@ -22,23 +46,15 @@ addButton.addEventListener('click', (event) => {
   addBook(title.value, authorName.value);
   title.value = '';
   authorName.value = '';
-  displayBooks();
 });
 
-function displayBooks() {
-  for (let i = 0; i < arrBooks.length; i++) {
-    const book = arrBooks[i];
-    const bookBody = document.createElement('div');
-    const title = document.createElement('h3');
-    const author = document.createElement('h3');
-    const removeButton = document.createElement('button');
-
-    title.textContent = book.title;
-    author.textContent = book.author;
-    removeButton.textContent = 'remove';
-    bookBody.append(title, author, removeButton);
-    booksContainer.append(bookBody);
+booksContainer.addEventListener('click', (event) => {
+  const regex = /(?<=remove)\d+/;
+  const { id } = event.target;
+  if (regex.test(id)) {
+    const index = parseInt(id.match(regex)[0], 10);
+    removeBook(index);
   }
+});
 
-}
 displayBooks();

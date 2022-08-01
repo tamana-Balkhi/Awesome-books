@@ -43,6 +43,7 @@ const bookData = [];
 }
 
 function setBooks(arrBooks) {
-  bookData = arrBooks;
-  localStorage.setItem(BOOK_DATA, arrBooks);
+  localStorage.setItem(BOOK_DATA, JSON.stringify(arrBooks));
 }
+
+export {storageAvailable, setBooks };
