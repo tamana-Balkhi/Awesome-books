@@ -1,4 +1,4 @@
-import * as storage from './dataStorage.js'; 
+import * as storage from './dataStorage.js';
 const booksContainer = document.getElementById('booksContainer');
 const title = document.getElementById('title');
 const authorName = document.getElementById('author');
@@ -6,6 +6,13 @@ const addButton = document.getElementById('addBtn');
 
 
 let arrBooks = [];
+
+let storageAvailable = storage.storageAvailable();
+if (storageAvailable) {
+  arrBooks = storage.getBooks();
+}
+
+
 
 function Book(title, author) {
   this.title = title;
@@ -33,13 +40,22 @@ function displayBooks() {
 function addBook(title, author) {
   const book = new Book(title, author);
   arrBooks.push(book);
+  if (storageAvailable) {
+    storage.setBooks(arrBooks);
+  }
+
   displayBooks();
+
 }
 
 function removeBook(index) {
   arrBooks = arrBooks.filter((_, position) => position !== index);
+  if (storageAvailable) {
+    storage.setBooks(arrBooks)
+  }
   displayBooks();
 }
+
 
 addButton.addEventListener('click', (event) => {
   event.preventDefault();

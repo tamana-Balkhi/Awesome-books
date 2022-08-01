@@ -7,7 +7,7 @@ const bookData = [];
  * If is the first time the software run in one browser load the default data
  * if not you will have an exeption
  */
- function setUp() {
+function setUp() {
   if (localStorage.getItem(BOOK_DATA) === null) {
     localStorage.setItem(BOOK_DATA, JSON.stringify(bookData));
   }
@@ -19,7 +19,7 @@ const bookData = [];
  * @param {*} type string
  * @returns Boolean if the browser supports local storage
  */
- function storageAvailable(type = LOCAL_STORAGE) {
+function storageAvailable(type = LOCAL_STORAGE) {
   let storage;
   try {
     storage = window[type];
@@ -46,4 +46,10 @@ function setBooks(arrBooks) {
   localStorage.setItem(BOOK_DATA, JSON.stringify(arrBooks));
 }
 
-export {storageAvailable, setBooks };
+function getBooks() {
+  return JSON.parse(localStorage.getItem(BOOK_DATA));
+}
+
+export { storageAvailable, setBooks, getBooks };
+
+
