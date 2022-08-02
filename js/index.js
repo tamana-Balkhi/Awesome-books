@@ -1,3 +1,3 @@
-import displayBooks from './books.js';
+import showBooks from './books.js';
 
-displayBooks();
+showBooks();

@@ -33,7 +33,7 @@ main {
 }
 
  .remove {
-   max-width: 10%;;
+  max-width: 10%;;
   width: 33%;
   padding: 10px;
   background-color: red;
@@ -65,7 +65,7 @@ input:hover {
 #addBtn {
   width: 10%;
   padding: 5px;
-margin: auto;
+  margin: auto;
   color: #fff;
   background: rgb(15, 221, 15);
   font-size: 14px;
