@@ -1,26 +1,38 @@
 /* eslint-disable no-plusplus */
 import * as storage from './dataStorage.js';
 
+const booksContainer = document.getElementById('booksContainer');
+const inputTitle = document.getElementById('title');
+const inputAuthor = document.getElementById('author');
+const addButton = document.getElementById('addBtn');
+
 class BooksManager {
-  constructor(booksContainer) {
+  constructor(booksContainer, storage) {
     this.arrBooks = [];
     this.booksContainer = booksContainer;
+    this.storage = storage;
+    this.storageAvailable = this.storage.storageAvailable();
   }
 
-  get getBooks() {
+  get books() {
     return this.arrBooks;
   }
 
-  set setBooks(arr) {
+  set books(arr) {
     this.arrBooks = [...arr];
   }
 
-  Book(title, author) {
-    this.title = title;
-    this.author = author;
+  getFromLocalStorage() {
+    if (this.storageAvailable) this.arrBooks = storage.getBooks();
+  }
+
+  setToLocalStorage() {
+    if (this.storageAvailable) storage.setBooks(this.books);
   }
 
   displayBooks() {
+    this.getFromLocalStorage();
+
     this.booksContainer.innerHTML = '';
     for (let i = 0; i < this.arrBooks.length; i++) {
       const book = this.arrBooks[i];
@@ -41,34 +53,25 @@ class BooksManager {
   }
 
   addBook(title, author) {
-    this.arrBooks.push(new this.Book(title, author));
+    const book = {};
+    book.title = title;
+    book.author = author;
+    this.arrBooks.push(book);
+    this.setToLocalStorage();
     this.displayBooks();
   }
 
   removeBook(index) {
     this.arrBooks = this.arrBooks.filter((_, position) => position !== index);
+    this.setToLocalStorage();
     this.displayBooks();
   }
 }
-
-const booksContainer = document.getElementById('booksContainer');
-const inputTitle = document.getElementById('title');
-const inputAuthor = document.getElementById('author');
-const addButton = document.getElementById('addBtn');
-const storageAvailable = storage.storageAvailable();
-const booksManager = new BooksManager(booksContainer);
-
-if (storageAvailable) {
-  booksManager.setBooks = storage.getBooks;
-}
+const booksManager = new BooksManager(booksContainer, storage);
 
 addButton.addEventListener('click', () => {
   if (inputTitle.validity.valid && inputAuthor.validity.valid) {
     booksManager.addBook(inputTitle.value, inputAuthor.value);
-
-    if (storageAvailable) {
-      storage.setBooks(booksManager.getBooks());
-    }
     inputTitle.value = '';
     inputAuthor.value = '';
   }
@@ -80,12 +83,9 @@ booksContainer.addEventListener('click', (event) => {
   if (regex.test(id)) {
     const index = parseInt(id.match(regex)[0], 10);
     booksManager.removeBook(index);
-    if (storageAvailable) {
-      storage.setBooks(booksManager.getBooks());
-    }
   }
 });
 
 export default function showBooks() {
-  booksContainer.displayBooks();
+  booksManager.displayBooks();
 }
