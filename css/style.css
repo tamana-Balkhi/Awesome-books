@@ -9,12 +9,10 @@ main {
   margin: 0 auto;
   max-width: 700px;
   border: 1px grey solid;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-
-  
 }
 
 .bookdiv {
@@ -26,14 +24,14 @@ main {
 }
 
 .books-container p {
- font-weight: 800;
- font-size: 17px;
- width: 33%;
- text-align:left;
+  font-weight: 800;
+  font-size: 17px;
+  width: 33%;
+  text-align: left;
 }
 
- .remove {
-  max-width: 10%;;
+.remove {
+  max-width: 10%;
   width: 33%;
   padding: 10px;
   background-color: red;
@@ -49,8 +47,8 @@ main {
   padding: 2%;
 }
 
- .addform h2 {
-  margin: 10px auto 20px ;
+.addform h2 {
+  margin: 10px auto 20px;
 }
 
 input {
