@@ -37,7 +37,7 @@ main {
 .remove {
   width: 100px;
   padding: 10px;
-  background-color: red;
+  background-color: rgb(206, 99, 99);
   color: #fff;
   border: 1px solid #fff;
   border-radius: 5px;
@@ -68,14 +68,14 @@ input:hover {
   padding: 5px;
   margin: auto;
   color: #fff;
-  background: rgb(15, 221, 15);
+  background: rgb(3, 131, 3);
   font-size: 14px;
   font-weight: 500;
   border: 1px solid gray;
 }
 
 #addBtn:hover {
-  color: rgb(15, 221, 15);
+  color: rgb(66, 129, 66);
   background: #fff;
   border: 1px solid gray;
 }
