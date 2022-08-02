@@ -6,24 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Awesome books</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <header>
-    <h1>Awesome book</h1>
-  </header>
   <main>
+    <h1>Awesome book</h1>
     <section id="booksContainer" class="books-container">
-      <h5>books</h5>
     </section>
 
-    <form action="#" method="get">
-      <label for="title">book title</label>
-      <input id="title" type="text" placeholder="title" required><br><br>
-      <label for="author">author</label>
-      <input id="author" type="text" placeholder="author" required> <br><br>
-      <button type="submit" id="addBtn">add</button>
-    </form>
+    <section class="addform">
+      <h2>Add books</h2>
+
+      <form action="#" method="get">
+        <label for="title"></label>
+        <input id="title" type="text" placeholder="title" required><br><br>
+        <label for="author"></label>
+        <input id="author" type="text" placeholder="author" required> <br><br>
+        <button type="submit" id="addBtn">add</button>
+      </form>
+
+    </section>
   </main>
   <script src="js/index.js" type="module"></script>
 </body>
