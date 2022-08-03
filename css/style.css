@@ -61,7 +61,7 @@ header {
   overflow-y: scroll;
   height: 50vh;
   border: 1px grey solid;
-  justify-content: center;
+  justify-content: flex-start;
   display: flex;
   flex-direction: column;
 }
