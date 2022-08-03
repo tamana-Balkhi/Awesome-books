@@ -5,6 +5,15 @@ const booksContainer = document.getElementById('booksContainer');
 const inputTitle = document.getElementById('title');
 const inputAuthor = document.getElementById('author');
 const addButton = document.getElementById('addBtn');
+const showBookNav = document.querySelector('#booksList');
+const form = document.querySelector('.addform');
+const contact = document.querySelector('.contact');
+const showformNav = document.querySelector('#newBook');
+const showcontactNav = document.querySelector('#Contact');
+const mainTitle = document.querySelector('.main-title');
+const date = new Date();
+const currentTime = document.querySelector('#currentTime');
+currentTime.textContent = date;
 
 class BooksManager {
   constructor(booksContainer, storage) {
@@ -89,3 +98,24 @@ booksContainer.addEventListener('click', (event) => {
 export default function showBooks() {
   booksManager.displayBooks();
 }
+
+showBookNav.addEventListener('click', () => {
+  form.style.display = 'none';
+  booksContainer.style.display = 'block';
+  contact.style.display = 'none';
+  mainTitle.style.display = 'block';
+});
+
+showformNav.addEventListener('click', () => {
+  form.style.display = 'block';
+  booksContainer.style.display = 'none';
+  contact.style.display = 'none';
+  mainTitle.style.display = 'none';
+});
+
+showcontactNav.addEventListener('click', () => {
+  form.style.display = 'none';
+  booksContainer.style.display = 'none';
+  contact.style.display = 'flex';
+  mainTitle.style.display = 'none';
+});
