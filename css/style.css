@@ -46,7 +46,7 @@ header {
 
 .main-title {
   font-size: 40px;
-  display: none;
+  
 }
 
 .current-time {
@@ -60,8 +60,9 @@ header {
   border: 1px grey solid;
   margin-bottom: 20px;
   justify-content: center;
+  display: flex;
   flex-direction: column;
-  display: none;
+  
 }
 
 .books-container > :nth-child(odd) {
