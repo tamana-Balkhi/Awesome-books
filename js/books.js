@@ -13,14 +13,7 @@ const showcontactNav = document.querySelector('#Contact');
 const mainTitle = document.querySelector('.main-title');
 const date = new Date();
 const currentTime = document.querySelector('#currentTime');
-//const data = `${date.getMonth()}- ${}`
 currentTime.textContent = date;
-
-
-
-
-
-
 
 class BooksManager {
   constructor(booksContainer, storage) {
@@ -110,21 +103,19 @@ showBookNav.addEventListener('click', () => {
   form.style.display = 'none';
   booksContainer.style.display = 'block';
   contact.style.display = 'none';
-  mainTitle.style.display = "block";
-
+  mainTitle.style.display = 'block';
 });
 
 showformNav.addEventListener('click', () => {
   form.style.display = 'block';
   booksContainer.style.display = 'none';
   contact.style.display = 'none';
-  mainTitle.style.display = "none";
-
+  mainTitle.style.display = 'none';
 });
 
 showcontactNav.addEventListener('click', () => {
   form.style.display = 'none';
   booksContainer.style.display = 'none';
   contact.style.display = 'flex';
-  mainTitle.style.display = "none";
+  mainTitle.style.display = 'none';
 });

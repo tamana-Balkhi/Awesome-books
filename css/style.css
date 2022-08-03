@@ -5,7 +5,7 @@ main {
   padding: 20px;
 }
 
-.navbar{
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +46,6 @@ header {
 
 .main-title {
   font-size: 40px;
-  
 }
 
 .current-time {
@@ -54,15 +53,17 @@ header {
   justify-content: end;
   margin-top: 5px;
 }
+
 .books-container {
   margin: 0 auto;
-  max-width: 700px;
+  max-width: 900px;
+  margin-bottom: 100px;
+  overflow-y: scroll;
+  height: 50vh;
   border: 1px grey solid;
-  margin-bottom: 20px;
   justify-content: center;
   display: flex;
   flex-direction: column;
-  
 }
 
 .books-container > :nth-child(odd) {
@@ -131,19 +132,17 @@ input:hover {
   border: 1px solid gray;
 }
 
-
-
 .contact {
   display: none;
   flex-direction: column;
   align-items: center;
 }
 
-.contact .title{
+.contact .title {
   margin-bottom: 30px;
 }
 
-.contact .para{
+.contact .para {
   letter-spacing: 1px;
   line-height: 20px;
   margin-bottom: 20px;
@@ -162,15 +161,14 @@ input:hover {
   flex-direction: row;
   justify-content: space-between;
   width: 98%;
-  position: fixed;
   bottom: 10px;
+  position: fixed;
   left: 0;
   right: 0;
   height: 50px;
 }
 
 .footer-p,
-.footer-link{
+.footer-link {
   padding: 5px 20px 5px 20px;
 }
-
