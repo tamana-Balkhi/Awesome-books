@@ -11,9 +11,12 @@ const contact = document.querySelector('.contact');
 const showformNav = document.querySelector('#newBook');
 const showcontactNav = document.querySelector('#Contact');
 const mainTitle = document.querySelector('.main-title');
-const date = new Date();
 const currentTime = document.querySelector('#currentTime');
-currentTime.textContent = date;
+
+setInterval(() => {
+  const date = new Date();
+  currentTime.textContent = date;
+}, 500);
 
 class BooksManager {
   constructor(booksContainer, storage) {
